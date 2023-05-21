@@ -24,12 +24,12 @@
 # 第二隻程式是一個基於 Arduino 的 IoT 裝置程式，用於收集溫度和濕度數據並將其推送到 MQTT 代理伺服器上。
 
 套件：
-      import time
-      import random
-      import requests
-      import DAN
-      import paho.mqtt.client as mqtt
-      import csv
+      1. import time
+      2. import random
+      3. import requests
+      4. import DAN
+      5. import paho.mqtt.client as mqtt
+      6. import csv
 
 	# 程式功能
 	1. 收集溫度和濕度數據
@@ -48,11 +48,11 @@
 # 第三隻程式是一個基於支持向量機回歸的溫度預測模型。該模型使用濕度作為特徵變數，預測溫度。
 
 套件：
-    import pandas as pd
-    from sklearn.model_selection import train_test_split
-    from sklearn.svm import SVR
-    from sklearn.metrics import mean_squared_error
-    import matplotlib.pyplot as plt
+    1. import pandas as pd
+    2. from sklearn.model_selection import train_test_split
+    3. from sklearn.svm import SVR
+    4. from sklearn.metrics import mean_squared_error
+    5. import matplotlib.pyplot as plt
 
 	# 程式功能、讀取 CSV 數據集、分割特徵和目標變數、分割訓練集和測試集
 	1. 建立支持向量機回歸模型、訓練模型

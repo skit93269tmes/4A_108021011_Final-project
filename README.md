@@ -68,7 +68,7 @@
 
 # 注意： 請確保在執行第三隻程式之前已經先執行第一隻程式和第二隻程式，以確保有可用的數據集。
 
-# Dummy_Device
+
 # Before using this example, please install the python module 'requests' correctly.
 
 This is a DA example with ControlChannels、SSL connection、Device_Auth.

@@ -68,10 +68,10 @@
 
 # 注意： 請確保在執行第三隻程式之前已經先執行第一隻程式和第二隻程式，以確保有可用的數據集。
 
-
+# DA Code.
 # Before using this example, please install the python module 'requests' correctly.
 
-This is a DA example with ControlChannels、SSL connection、Device_Auth.
+DA example with ControlChannels、SSL connection、Device_Auth.
 
 Changes:
 1. Separate sessions into  data and control sessions:

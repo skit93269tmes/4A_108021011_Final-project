@@ -23,7 +23,7 @@
 # 第二隻程式概述 DAI.py
 # 第二隻程式是一個基於 Arduino 的 IoT 裝置程式，用於收集溫度和濕度數據並將其推送到 MQTT 代理伺服器上。
 
-套件：
+# 套件：
       1. import time
       2. import random
       3. import requests
@@ -47,7 +47,7 @@
 # 第三隻程式概述 AI演算法SVM線性.py
 # 第三隻程式是一個基於支持向量機回歸的溫度預測模型。該模型使用濕度作為特徵變數，預測溫度。
 
-套件：
+# 套件：
     1. import pandas as pd
     2. from sklearn.model_selection import train_test_split
     3. from sklearn.svm import SVR

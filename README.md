@@ -20,7 +20,7 @@
 	7. 執行濕度控制
 	8. 發布數據到 MQTT 代理伺服器
 
-# 第二隻程式概述 DAI.py
+# 第二隻程式概述 DAI.py (連接著DAN.py 、 csmapi.py)這兩隻不用更動
 # 第二隻程式是一個基於 Arduino 的 IoT 裝置程式，用於收集溫度和濕度數據並將其推送到 MQTT 代理伺服器上。
 
 # 套件：
@@ -68,7 +68,7 @@
 
 # 注意： 請確保在執行第三隻程式之前已經先執行第一隻程式和第二隻程式，以確保有可用的數據集。
 
-# DA Code.
+# DAN.py、DAI.py、csmapi.py Code.
 # Before using this example, please install the python module 'requests' correctly.
 
 DA example with ControlChannels、SSL connection、Device_Auth.

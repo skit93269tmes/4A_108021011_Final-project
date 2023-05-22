@@ -5,6 +5,8 @@
 #define DHTPIN 6
 #define DHTPINONE 12
 #define ledPin 10
+#define buzzer 13
+
 // Digital pin connected to the DHT sensor
 
 #define DHTTYPE DHT11   // DHT 22
@@ -39,7 +41,7 @@ void DHTgotdata(){
      Serial.print(h);
      Serial.print(F("%  Temperature: "));
      Serial.println(t);
-    message="Humidity: "+String(h)+"%"+","+Temperature: "+String(t)+"°C ";
+    message="Humidity: "+String(h)+"%"+","+"Temperature:"+String(t)+"°C ";
   }
 }
 
@@ -50,11 +52,17 @@ void humidity() {
   if (!isnan(h) && h >= 80.0) {
     digitalWrite(DHTPINONE, HIGH);  // 打開繼電器
     digitalWrite(ledPin, LOW);
+    digitalWrite(buzzer,HIGH);
+    delay(1000);
+    digitalWrite(buzzer,LOW);
     Serial.println("Relay turned on due to high humidity.");
  
   } else {
     digitalWrite(DHTPINONE, LOW);  // 關閉繼電器
     digitalWrite(ledPin, HIGH);
+    digitalWrite(buzzer,HIGH);
+    delay(1000);
+    digitalWrite(buzzer,LOW);
     Serial.println("Relay turned down due to high humidity.");
     
   }
@@ -106,6 +114,7 @@ void setup()
   pinMode(DHTPINONE, OUTPUT);
   digitalWrite(DHTPINONE, LOW);
   pinMode(ledPin, OUTPUT); 
+  pinMode(buzzer, OUTPUT); 
   Serial.begin(38400);
   dht.begin();
   while (status != WL_CONNECTED)
@@ -140,7 +149,7 @@ void loop()
 
   static unsigned long lastPublish = 0;
   unsigned long now = millis();
-  if (now - lastPublish >= 30000)
+  if (now - lastPublish >= 5000)
   {
     lastPublish = now;
     DHTgotdata();

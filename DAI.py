@@ -4,6 +4,7 @@ import requests
 import DAN
 import paho.mqtt.client as mqtt
 import csv
+import re
 ServerURL = 'http://120.108.111.234:9999'  # with non-secure connection
 # ServerURL = 'https://DomainName' #with SSL connection
 Reg_addr = None  # if None, Reg_addr = MAC address
@@ -20,7 +21,8 @@ DAN.device_registration_with_retry(ServerURL, Reg_addr)
 DAN.ControlChannel
 det_Humidity = 0
 det_Temperature= 0
-
+det_1 = 0
+det_2 = 0
 filename = 'data.csv'
 
 
@@ -40,7 +42,7 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    global det_Temperature,det_Humidity, control_message
+    global det_Temperature,det_Humidity, control_message,det_1,det_2
 
     # 轉換編碼utf-8才看得懂中文
 
@@ -54,8 +56,9 @@ def on_message(client, userdata, msg):
     det_Humidity =(detect_data[0])
     det_Temperature=(detect_data[1])
     
+    det_1 = re.findall(r"\d+\.?\d*", det_Humidity)
+    det_2 = re.findall(r"\d+\.?\d*", det_Temperature)
     
-
     detect_data = message.split(",")
     control_message = True
     print("iottalk",det_Humidity,det_Temperature)
@@ -96,7 +99,7 @@ while True:
                     if file.tell() == 0:
                         writer.writerow(['Humidity', 'Temperature'])
                         
-                    writer.writerow([det_Humidity, det_Temperature])
+                    writer.writerow([det_1[0], det_2[0]])
                     
                 control_message = False
             # ==================================
